@@ -1,0 +1,3 @@
+# rate-limit-status
+
+For understanding just how badly you're exceeding your API quota...
