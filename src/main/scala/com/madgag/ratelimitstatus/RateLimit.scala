@@ -17,9 +17,7 @@
 package com.madgag.ratelimitstatus
 
 import java.time.Duration.ZERO
-import java.time.ZoneOffset.UTC
-import java.time.format.DateTimeFormatter.ISO_TIME
-import java.time.{Duration, Instant, ZonedDateTime}
+import java.time.{Duration, Instant}
 
 import scala.language.implicitConversions
 import scala.math.Ordering.Implicits._
