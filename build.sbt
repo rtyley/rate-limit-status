@@ -4,9 +4,9 @@ name := "rate-limit-status"
 
 description := "For understanding API quota consumption"
 
-scalaVersion := "2.12.6"
+scalaVersion := "2.13.1"
 
-crossScalaVersions := Seq(scalaVersion.value, "2.11.12")
+crossScalaVersions := Seq(scalaVersion.value, "2.12.10", "2.11.12")
 
 scmInfo := Some(ScmInfo(
   url("https://github.com/rtyley/rate-limit-status"),
@@ -15,7 +15,7 @@ scmInfo := Some(ScmInfo(
 
 licenses := Seq("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0"))
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.8" % "test"
 
 publishTo := sonatypePublishTo.value
 
@@ -33,8 +33,8 @@ releaseProcess := Seq[ReleaseStep](
   tagRelease,
   // For non cross-build projects, use releaseStepCommand("publishSigned")
   releaseStepCommandAndRemaining("+publishSigned"),
+  releaseStepCommand("sonatypeBundleRelease"),
   setNextVersion,
   commitNextVersion,
-  releaseStepCommand("sonatypeReleaseAll"),
   pushChanges
 )

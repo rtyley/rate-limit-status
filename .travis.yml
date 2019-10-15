@@ -1,9 +1,10 @@
 language: scala
 scala:
-   - 2.12.6
+   - 2.12.10
+   - 2.13.1
 
 jdk:
-  - oraclejdk8
+  - openjdk8
 
 sudo: false
 cache:
