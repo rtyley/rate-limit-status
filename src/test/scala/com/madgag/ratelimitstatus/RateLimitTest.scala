@@ -1,10 +1,11 @@
 package com.madgag.ratelimitstatus
 
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
+
 import java.time.{Duration, Instant}
 
-import org.scalatest.{FlatSpec, Matchers}
-
-class RateLimitTest extends FlatSpec with Matchers {
+class RateLimitTest extends AnyFlatSpec with Matchers {
 
   val rateLimit = RateLimit(window = Duration.ofMinutes(10))
 
