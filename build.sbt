@@ -6,7 +6,7 @@ description := "For understanding API quota consumption"
 
 scalaVersion := "2.13.5"
 
-crossScalaVersions := Seq(scalaVersion.value, "2.12.13", "3.0.0-RC3")
+crossScalaVersions := Seq(scalaVersion.value, "2.12.13", "3.0.0")
 
 scmInfo := Some(ScmInfo(
   url("https://github.com/rtyley/rate-limit-status"),
@@ -15,7 +15,7 @@ scmInfo := Some(ScmInfo(
 
 licenses := Seq("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0"))
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.8" % Test
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.9" % Test
 
 publishTo := sonatypePublishToBundle.value
 
