@@ -4,7 +4,7 @@ name := "rate-limit-status"
 
 description := "For understanding API quota consumption"
 
-scalaVersion := "2.13.5"
+scalaVersion := "2.13.6"
 
 crossScalaVersions := Seq(scalaVersion.value, "2.12.13", "3.0.0")
 
