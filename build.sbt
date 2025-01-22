@@ -1,28 +1,24 @@
+import ReleaseTransformations.*
+import sbtversionpolicy.withsbtrelease.ReleaseVersion
+
 organization := "com.madgag"
 
 name := "rate-limit-status"
 
 description := "For understanding API quota consumption"
 
-scalaVersion := "2.13.6"
+scalaVersion := "2.13.16"
 
-crossScalaVersions := Seq(scalaVersion.value, "2.12.13", "3.0.0")
+crossScalaVersions := Seq(scalaVersion.value, "2.12.20", "3.3.4")
 
-scmInfo := Some(ScmInfo(
-  url("https://github.com/rtyley/rate-limit-status"),
-  "scm:git:git@github.com:rtyley/rate-limit-status.git"
-))
+licenses := Seq(License.Apache2)
 
-licenses := Seq("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0"))
+scalacOptions ++= Seq("-deprecation", "-release:11")
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.9" % Test
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.19" % Test
 
-publishTo := sonatypePublishToBundle.value
-
-import ReleaseTransformations._
-
+releaseVersion := ReleaseVersion.fromAggregatedAssessedCompatibilityWithLatestRelease().value
 releaseCrossBuild := true // true if you cross-build the project for multiple Scala versions
-
 releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
   inquireVersions,
@@ -31,10 +27,6 @@ releaseProcess := Seq[ReleaseStep](
   setReleaseVersion,
   commitReleaseVersion,
   tagRelease,
-  // For non cross-build projects, use releaseStepCommand("publishSigned")
-  releaseStepCommandAndRemaining("+publishSigned"),
-  releaseStepCommand("sonatypeBundleRelease"),
   setNextVersion,
-  commitNextVersion,
-  pushChanges
+  commitNextVersion
 )
