@@ -17,7 +17,7 @@ scalacOptions ++= Seq("-deprecation", "-release:11")
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.19" % Test
 
-releaseVersion := ReleaseVersion.fromAggregatedAssessedCompatibilityWithLatestRelease().value
+// releaseVersion := ReleaseVersion.fromAggregatedAssessedCompatibilityWithLatestRelease().value
 releaseCrossBuild := true // true if you cross-build the project for multiple Scala versions
 releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
